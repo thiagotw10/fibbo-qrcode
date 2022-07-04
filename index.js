@@ -10,6 +10,9 @@ function listDevices(){
   
   navigator.mediaDevices.enumerateDevices()
   .then(function(devices) {
+
+    $('#log').html(`devices: \n\n${JSON.stringify(devices)}`)
+
     devices.forEach(element => {
       let cam = element.label.split(' ')
       if (cam[3] === 'back'){
@@ -31,36 +34,46 @@ function listDevices(){
 }
 
 async function openCamera() {    
-
+  $('#log').html(` `)
   const deviceId = listDevices();
-
+  let test;
   if (!deviceId){
     console.log(`!deviceId`)
     $('#log').html(`no device id`)
-    return false;
+    test = false
+  }else{
+    test = true
   }
-    
+  let constraints; 
 
-    Quagga.init({
-      inputStream: {
-          name: "Live",
-          type: "LiveStream",
-          target: document.querySelector('#camera'), 
-          constraints: {
-            facingMode: "environment",
-            //deviceId: deviceId
-          }
-      },
-      decoder: {
-          readers: ["code_128_reader"]
-      }
+if (test){
+   constraints = {
+    facingMode: "environment",
+    deviceId: deviceId
+  }
+}else{
+   constraints = {
+    facingMode: "environment",
+  }
+}
+
+  Quagga.init({
+    inputStream: {
+        name: "Live",
+        type: "LiveStream",
+        target: document.querySelector('#camera'), 
+        constraints
+    },
+    decoder: {
+        readers: ["code_128_reader"]
+    }
   }, function (err) {
-      if (err) {
-          console.log(err);
-          return
-      }
-      console.log("Initialization finished. Ready to start");
-      Quagga.start();
+    if (err) {
+        console.log(err);
+        return
+    }
+    console.log("Initialization finished. Ready to start");
+    Quagga.start();
   });
 
   Quagga.onDetected(function (data) {

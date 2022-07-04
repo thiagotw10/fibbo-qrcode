@@ -7,10 +7,7 @@ async function openCamera() {
           type: "LiveStream",
           target: document.querySelector('#camera'), 
           constraints: {
-            width: 640,
-            height: 480,
             facingMode: "environment",
-            deviceId: "7832475934759384534"
           },
       },
       decoder: {

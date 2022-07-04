@@ -1,22 +1,39 @@
-async function openCamera() {
-    
-
-    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-        console.log("enumerateDevices() not supported.");
-        return;
+function listDevices(){
+  
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+    console.log("enumerateDevices() not supported.");
+    return false;
+  }
+  
+  // List cameras and microphones.
+  
+  navigator.mediaDevices.enumerateDevices()
+  .then(function(devices) {
+    devices.forEach(element => {
+      let cam = element.label.split(' ')
+      if (cam[3] === 'back'){
+        return element.deviceId
+      }else{
+        return false
       }
-      
-      // List cameras and microphones.
-      
-      navigator.mediaDevices.enumerateDevices()
-      .then(function(devices) {
-        console.log(devices)
-        $('#res').html(JSON.stringify(devices));
-      })
-      .catch(function(err) {
-        console.log(err.name + ": " + err.message);
-      });
+    });
+    
+  })
+  .catch(function(err) {
+    console.log(err.name + ": " + err.message);
+  });
 
+}
+
+async function openCamera() {    
+
+  const deviceId = listDevices();
+
+  if (!deviceId){
+    console.log(`!deviceId`)
+    return false;
+  }
+    
 
     Quagga.init({
       inputStream: {
@@ -25,7 +42,7 @@ async function openCamera() {
           target: document.querySelector('#camera'), 
           constraints: {
             facingMode: "environment",
-            deviceId: 'b94ff6d69c018a734603db19a27ea81050832daec0195873a49600fd0b9d808e'
+            deviceId: deviceId
           }
       },
       decoder: {

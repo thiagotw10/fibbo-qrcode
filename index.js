@@ -1,5 +1,22 @@
 async function openCamera() {
-  
+    
+
+    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+        console.log("enumerateDevices() not supported.");
+        return;
+      }
+      
+      // List cameras and microphones.
+      
+      navigator.mediaDevices.enumerateDevices()
+      .then(function(devices) {
+        console.log(devices)
+        $('#res').html(JSON.stringify(devices));
+      })
+      .catch(function(err) {
+        console.log(err.name + ": " + err.message);
+      });
+
 
     Quagga.init({
       inputStream: {

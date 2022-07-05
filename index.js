@@ -1,40 +1,15 @@
-async function initializeCamera() {
-  const useFrontCamera = true;
-  const constraints = {
-    video: {
-      width: {
-        min: 1280,
-        ideal: 1920,
-        max: 2560,
-      },
-      height: {
-        min: 720,
-        ideal: 1080,
-        max: 1440,
-      },
-    },
-  };
-  stopVideoStream();
-  constraints.video.facingMode = useFrontCamera ? "user" : "environment";
-
-  try {
-    videoStream = await navigator.mediaDevices.getUserMedia(constraints);
-    video.srcObject = videoStream;
-  } catch (err) {
-    alert("Could not access the camera");
-  }
-}
-
-
-
 async function openCamera() {  
   //initializeCamera();  
+  const video = document.querySelector('#camera')
+  
   Quagga.init({
     inputStream: {
         name: "Live",
-        type: "VideoStream",
-        target: document.querySelector('#camera'), 
+        type: "LiveStream",
+        target: video, 
         constraints: {
+          width: 640,
+          height: 480,
           facingMode: "enviroment",
         }
     },
@@ -48,6 +23,7 @@ async function openCamera() {
     }
     console.log("Initialization finished. Ready to start");
     Quagga.start();
+
   });
 
   Quagga.onDetected(function (data) {

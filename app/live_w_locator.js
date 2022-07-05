@@ -134,6 +134,8 @@ $(function() {
                 $li.find("img").attr("src", result.frame);
                 $li.find("h4.code").html(result.codeResult.code + " (" + result.codeResult.format + ")");
                 $ul.prepend($li);
+
+                return;
             });
         },
         _accessByPath: function(obj, path, val) {
@@ -231,8 +233,8 @@ $(function() {
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width: {min: 640},
-                    height: {min: 480},
+                    // width: {min: 640},
+                    // height: {min: 480},
                     facingMode: "environment",
                     aspectRatio: {min: 1, max: 2}
                 }
@@ -285,12 +287,16 @@ $(function() {
 
         if (App.lastResult !== code) {
             App.lastResult = code;
-            var $node = null, canvas = Quagga.canvas.dom.image;
+            // var $node = null, canvas = Quagga.canvas.dom.image;
 
-            $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            $node.find("img").attr("src", canvas.toDataURL());
-            $node.find("h4.code").html(code);
-            $("#result_strip ul.thumbnails").prepend($node);
+            // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
+            // $node.find("img").attr("src", canvas.toDataURL());
+            // $node.find("h4.code").html(code);
+            // $("#result_strip ul.thumbnails").prepend($node);
+
+            $("#exampleModal #close").click()
+            document.querySelector('#resultado').value = data.codeResult.code             
+            return;
         }
     });
 

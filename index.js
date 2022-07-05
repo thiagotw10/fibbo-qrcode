@@ -1,4 +1,5 @@
 async function initializeCamera() {
+  const useFrontCamera = true;
   const constraints = {
     video: {
       width: {

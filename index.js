@@ -15,7 +15,7 @@ function listDevices(){
 
     devices.forEach(element => {
       let cam = element.label.split(' ')
-      if (cam[3] === 'back'){
+      if (cam[3] === 'front'){
         $('#log').html(`element.deviceId: ${element.deviceId}`)
         return element.deviceId
       }

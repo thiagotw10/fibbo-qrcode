@@ -28,12 +28,15 @@ async function initializeCamera() {
 
 
 async function openCamera() {  
-  initializeCamera();  
+  //initializeCamera();  
   Quagga.init({
     inputStream: {
         name: "Live",
-        type: "LiveStream",
+        type: "VideoStream",
         target: document.querySelector('#camera'), 
+        constraints: {
+          facingMode: "enviroment",
+        }
     },
     decoder: {
         readers: ["code_128_reader"]

@@ -1,4 +1,4 @@
-$(function() {
+function openCamera() {
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -295,9 +295,10 @@ $(function() {
             // $("#result_strip ul.thumbnails").prepend($node);
 
             $("#exampleModal #close").click()
-            document.querySelector('#resultado').value = code         
+            document.querySelector('#resultado').value = code      
+            Quagga.stop();   
             return;
         }
     });
 
-});
+};

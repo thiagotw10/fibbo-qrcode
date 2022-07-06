@@ -197,8 +197,8 @@ $(function(){
                     if (/^(\d+)x(\d+)$/.test(value)) {
                         var values = value.split('x');
                         return {
-                            width: {min: parseInt(values[0])},
-                            height: {min: parseInt(values[1])}
+                            width: {min: 100},
+                            height: {min: 100}
                         };
                     }
                     return {
@@ -232,6 +232,8 @@ $(function(){
             inputStream: {
                 type : "LiveStream",
                 constraints: {
+                    width : 320,
+                    height: 320,
                     facingMode: "environment",
                     aspectRatio: {min: 1, max: 2}
                 }

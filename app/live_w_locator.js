@@ -21,7 +21,7 @@ $(function(){
             return true;
         }
     });
-    var App = {
+     App = {
         init: function() {
             var self = this;
 

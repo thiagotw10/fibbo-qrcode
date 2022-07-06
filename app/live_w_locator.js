@@ -1,4 +1,5 @@
 $(function(){
+    cont = 1;
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -268,15 +269,23 @@ function openCamera() {
 
         if (App.lastResult !== code) {
             App.lastResult = code;
-            // var $node = null, canvas = Quagga.canvas.dom.image;
-
-            // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            // $node.find("img").attr("src", canvas.toDataURL());
-            // $node.find("h4.code").html(code);
-            // $("#result_strip ul.thumbnails").prepend($node);
-
+           
             $("#exampleModal #close").click()
-            document.querySelector('#resultado').value = code      
+            document.querySelector(`#request${cont}`).value = code   
+            
+            let newRequest = `
+            <div class="row mt-2">
+            <div class="col-9">
+              <input type="text" disabled class="form-control"  id="request${cont++}"/>
+            </div>
+            <div class="col-3">
+              <button href="#" style="border:1px solid black;" onclick="openCamera()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn form-control">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>
+              </button>
+            </div>
+          </div>
+            `
+            $(`#requests`).append(newRequest);
             Quagga.stop();   
             return;
         }

@@ -196,10 +196,10 @@ $(function(){
             inputStream: {
                 constraints: function(value){
                     if (/^(\d+)x(\d+)$/.test(value)) {
-                        var values = value.split('x');
+                        //var values = value.split('x');
                         return {
-                            width: {min: 100},
-                            height: {min: 100}
+                            width: {min: 640},
+                            height: {min: 320}
                         };
                     }
                     return {

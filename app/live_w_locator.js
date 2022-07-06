@@ -232,7 +232,7 @@ $(function(){
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width : 600,
+                    width : 640,
                     height: 320,
                     facingMode: "environment",
                     aspectRatio: {min: 1, max: 2}

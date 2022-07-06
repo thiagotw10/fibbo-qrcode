@@ -30,6 +30,7 @@ $(function(){
                     return self.handleError(err);
                 }
                 //Quagga.registerResultCollector(resultCollector);
+                Quagga.start();
                 App.attachListeners();
                 App.checkCapabilities();
             });
@@ -261,7 +262,7 @@ $(function(){
 
 
 function openCamera() {
-    Quagga.start();
+    // Quagga.start();
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
 

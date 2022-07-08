@@ -193,9 +193,11 @@
 
 
 
-  <script src="vendor/jquery-1.9.0.min.js" type="text/javascript"></script>
+  <!-- <script src="vendor/jquery-1.9.0.min.js" type="text/javascript"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
   <!-- <script src="//webrtc.github.io/adapter/adapter-latest.js" type="text/javascript"></script> -->
-  <script src="vendor/quagga.js" type="text/javascript"></script>
+  <!-- <script src="vendor/quagga.js" type="text/javascript"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="live_w_locator.js" type="text/javascript"></script>
 
 

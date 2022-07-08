@@ -33,7 +33,8 @@ function login(){
         }, 2000)
     
         setTimeout(function(){
-          location.href = `${baseUrl}/request.independent.php`
+          //location.href = `${baseUrl}/request.independent.php`
+          location.href = `/request.independent.php`
         }, 3000)
     
     }else{

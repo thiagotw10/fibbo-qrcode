@@ -93,9 +93,9 @@
   </footer>
 </div>
   <script>
-    baseUrl = `http://localhost/3wings/fibbo/solicitacao_avulsa`
+    //baseUrl = `http://localhost/3wings/fibbo/solicitacao_avulsa`
   </script>
-  <script src="vendor/jquery-1.9.0.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
   <script src="src/controllers/login.controller.js"></script>
 </body>
 

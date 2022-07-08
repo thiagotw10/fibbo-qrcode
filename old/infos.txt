@@ -1,0 +1,6 @@
+Verificar se solicitacao eh valida, tem um arquivop com uma view que ja faz isso
+
+para abrir a solicitacao: 
+solicitar.php
+L. 912
+

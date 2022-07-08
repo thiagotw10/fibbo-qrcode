@@ -1,0 +1,14 @@
+body {
+  font-family: 'Anek Latin', sans-serif;
+}
+
+.btn-login{
+  background-color:#12A7BB;
+  color: #fff;
+}
+
+.footer-custom {
+  position: fixed;
+  bottom:0;
+  left:0;
+}

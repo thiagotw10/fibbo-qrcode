@@ -274,7 +274,7 @@ $(function(){
 })
 
 function consoleScreen(data){
-    $(`#logs`).append(data)
+    $(`#logs`).append(`<br/> ${data}`)
 }
 
 async function openCamera(par) {

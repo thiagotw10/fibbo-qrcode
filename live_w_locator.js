@@ -274,35 +274,80 @@ $(function(){
 })
 
 
-function openCamera() {
+function openCamera(par) {
+
+    let svgBtnSuccess = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z" fill="green"/></svg>`;
+
+    let svgBtnError = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z" fill="red"/></svg>`;
+
+    let svgBarCode = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>`;
+
+    const idbtnClick = par.id;
+
     Quagga.start();
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
 
         if (App.lastResult !== code) {
             App.lastResult = code;
-           
-            $("#exampleModal #close").click()
-            document.querySelector(`#request${cont}`).value = code   
-            
-            let newRequest = `
-            <div class="row mt-2">
-            <div class="col-9">
-              <input type="text" disabled class="form-control"  id="request${cont++}"/>
-            </div>
-            <div class="col-3">
-              <button href="#" style="border:1px solid black;" onclick="openCamera()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn form-control">
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>
-              </button>
-            </div>
-          </div>
-            `
-            $(`#requests`).append(newRequest);
-            
-            Quagga.stop();   
-            return;
+
+            const settings = {
+                "url": "src/rules/validate.request.rule.php",
+                "method": "POST",
+                "data": { 
+                request: code
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                if (response == 1){
+
+                    $("#exampleModal #close").click()
+
+                    document.querySelector(`#request${cont}`).value = code   
+
+                    cont = cont + 1
+
+                    let newRequest = `
+                    <div class="row mt-2">
+                    <div class="col-9">
+                        <input type="text" disabled class="form-control"  id="request${cont}"/>
+                    </div>
+                    <div class="col-3">
+                        <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control" id="btnBarCode${cont}">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>
+                        </button>
+                    </div>
+                    </div>
+                    `
+                    $(`#requests`).append(newRequest);
+                    $(`#${idbtnClick}`).attr('disabled', 'disabled');
+                    $(`#btnBarCode${cont}`).addClass(`animate__animated animate__fadeIn`);
+                    $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
+                    $(`#${idbtnClick}`).html(svgBtnSuccess);
+
+                }else{
+                    $(`#${idbtnClick}`).html(svgBtnError);
+                    $(`#${idbtnClick}`).addClass(`animate__animated animate__flash`);
+
+                    setTimeout(function(){
+                        $(`#${idbtnClick}`).html(svgBarCode);
+                        $(`#${idbtnClick}`).removeClass(`animate__animated animate__flash`);
+                    }, 2000)
+                
+                }
+
+            }).catch(() => {
+                return false;
+            });
+
         }
-    });
+
+    })
+    
+    Quagga.stop();   
+    return; 
+        
 
 };
 

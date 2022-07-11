@@ -91,7 +91,7 @@
             </div>
             <div class="col-3">
 
-              <button href="#" style="border:1px solid black;" onclick="openCameraTest(this)" class="btn form-control"
+              <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control"
                 id="btnBarCode1">
                 <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">

@@ -276,7 +276,7 @@ function consoleScreen(data){
 }
 
 async function openCamera(par) {
-
+    App.init();
     let cont = parseInt($('#cont').val());
     
 
@@ -340,7 +340,7 @@ async function openCamera(par) {
                     $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
                     $(`#${par.id}`).html(svgBtnSuccess);
 
-                    //Quagga.stop();  
+                    Quagga.stop();  
                     $('#cont').val(cont); 
                     return; 
 

@@ -9,7 +9,7 @@ function confirmRequests(){
 }
 
 $(document).ready(function(){
-    cont = 1;
+    cont = 3;
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -393,7 +393,7 @@ async function openCameraTest(par) {
 
             document.querySelector(`#request${cont}`).value = code   
 
-            cont = cont + 1
+            //cont = cont + 1
 
             let newRequest = `
             <div class="row mt-2">

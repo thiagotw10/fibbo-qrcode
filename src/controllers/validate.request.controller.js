@@ -1,16 +1,17 @@
-function validate(request){
+function validate(pRequest){
 
   const settings = {
-    "url": "api/index.php",
+    "url": "src/rules/validate.request.rule.php",
     "method": "POST",
     "data": { 
-      op: "request",
-      requestNumber: inputRequest
+      request: pRequest
     }
   };
   
   $.ajax(settings).done(function (response) {
-
+    return true;
+  }).catch(() => {
+    return false;
   });
 
   

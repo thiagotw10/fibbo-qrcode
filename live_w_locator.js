@@ -9,7 +9,7 @@ function confirmRequests(){
 }
 
 $(document).ready(function(){
-    cont = 3;
+   cont = 1;
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -282,8 +282,6 @@ async function openCamera(par) {
     let svgBtnError = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z" fill="red"/></svg>`;
 
     let svgBarCode = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>`;
-    
-    consoleScreen(`par.id: ${par.id}`);
 
     Quagga.start();
     Quagga.onDetected(function(result) {
@@ -300,10 +298,18 @@ async function openCamera(par) {
                 }
             };
 
-            consoleScreen(`before cont: ${cont} `);
+            consoleScreen(`antes do ajax cont: ${cont} `);
+            consoleScreen(`antes do ajax par.id: ${par.id} `);
 
             $.ajax(settings).done(function (response) {
+                consoleScreen(`depois do ajax fora do IF cont: ${cont} `);
+                consoleScreen(`depois do ajax fora do IF par.id: ${par.id} `);
+
                 if (response == 1){
+
+                    consoleScreen(`depois do ajax no IF cont: ${cont} `);
+                    consoleScreen(`depois do ajax no IF par.id: ${par.id} `);
+
                     $("#exampleModal #close").click()
 
                     document.querySelector(`#request${cont}`).value = code   
@@ -335,8 +341,9 @@ async function openCamera(par) {
                     return; 
 
                 }else{
-                    
-                    consoleScreen(`id btnBarCode: #${par.id}`);
+                    consoleScreen(`depois do ajax no ELSE cont: ${cont} `);
+                    consoleScreen(`depois do ajax no ELSE par.id: ${par.id} `);
+
                     $("#exampleModal #close").click()
 
                     $(`#${par.id}`).html(svgBtnError);

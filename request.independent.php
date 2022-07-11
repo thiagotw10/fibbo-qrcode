@@ -24,7 +24,7 @@
 </head>
 
 <body>
-
+  
   <header style="position: fixed; width: 100%; z-index: 999;">
     <div class="navbar shadow-sm" style="background-color:#12A7BB;">
       <div class="container d-flex align-items-center">
@@ -79,6 +79,7 @@
           </div>
         </div>
         <div id="logsLabel" class="container mb-2">
+          cont: <input type="number" value="1" id="cont" ><br/>
           Logs: 
           <div id="logs" style="border: 1px solid rgb(226, 226, 226)">
             &nbsp;

@@ -276,7 +276,7 @@ function consoleScreen(data){
 }
 
 async function openCamera(par) {
-    App.init();
+    
     let cont = parseInt($('#cont').val());
     
 
@@ -301,24 +301,16 @@ async function openCamera(par) {
                 }
             };
 
-            consoleScreen(`antes do ajax cont: ${cont} `);
-            consoleScreen(`antes do ajax par.id: ${par.id} `);
-
             $.ajax(settings).done(function (response) {
-                consoleScreen(`depois do ajax fora do IF cont: ${cont} `);
-                consoleScreen(`depois do ajax fora do IF par.id: ${par.id} `);
 
                 if (response == 1){
 
-                    consoleScreen(`depois do ajax no IF cont: ${cont} `);
-                    consoleScreen(`depois do ajax no IF par.id: ${par.id} `);
 
                     $("#exampleModal #close").click()
 
                     document.querySelector(`#request${cont}`).value = code   
 
                     cont = cont + 1
-                    consoleScreen(`after cont: ${cont} `);
                     let newRequest = `
                     <div class="row mt-2">
                     <div class="col-9">
@@ -332,30 +324,27 @@ async function openCamera(par) {
                     </div>
                     `;
 
-                    consoleScreen(`id btnBarCode: #${par.id} id request: #request${cont}`);
                     
                     $(`#requests`).append(newRequest);
-                    $(`#${par.id}`).attr('disabled', 'disabled');
+                    $(`#btnBarCode${cont-1}`).attr('disabled', 'disabled');
                     $(`#btnBarCode${cont}`).addClass(`animate__animated animate__fadeIn`);
                     $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
-                    $(`#${par.id}`).html(svgBtnSuccess);
+                    $(`#btnBarCode${cont-1}`).html(svgBtnSuccess);
 
-                    Quagga.stop();  
+                    //Quagga.stop();  
                     $('#cont').val(cont); 
                     return; 
 
                 }else{
-                    consoleScreen(`depois do ajax no ELSE cont: ${cont} `);
-                    consoleScreen(`depois do ajax no ELSE par.id: ${par.id} `);
 
                     $("#exampleModal #close").click()
 
-                    $(`#${par.id}`).html(svgBtnError);
-                    $(`#${par.id}`).addClass(`animate__animated animate__flash`);
+                    $(`#btnBarCode${cont}`).html(svgBtnError);
+                    $(`#btnBarCode${cont}`).addClass(`animate__animated animate__flash`);
 
                     setTimeout(function(){
-                        $(`#${par.id}`).html(svgBarCode);
-                        $(`#${par.id}`).removeClass(`animate__animated animate__flash`);
+                        $(`#btnBarCode${cont}`).html(svgBarCode);
+                        $(`#btnBarCode${cont}`).removeClass(`animate__animated animate__flash`);
                     }, 2000)
 
                     //Quagga.stop();   

@@ -8,9 +8,7 @@ function confirmRequests(){
       }, 2000); 
 }
 
-
-$(function(){
-
+$(document).ready(function(){
     cont = 1;
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,

@@ -326,6 +326,9 @@ async function openCamera(par) {
                     $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
                     $(`#${idbtnClick}`).html(svgBtnSuccess);
 
+                    Quagga.stop();   
+                    return; 
+
                 }else{
                     $(`#${idbtnClick}`).html(svgBtnError);
                     $(`#${idbtnClick}`).addClass(`animate__animated animate__flash`);
@@ -334,6 +337,10 @@ async function openCamera(par) {
                         $(`#${idbtnClick}`).html(svgBarCode);
                         $(`#${idbtnClick}`).removeClass(`animate__animated animate__flash`);
                     }, 2000)
+
+                    Quagga.stop();   
+                    return; 
+
                 
                 }
 
@@ -345,8 +352,7 @@ async function openCamera(par) {
 
     })
     
-    Quagga.stop();   
-    return; 
+ 
         
 
 };

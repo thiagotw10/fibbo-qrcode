@@ -330,6 +330,9 @@ async function openCamera(par) {
                     return; 
 
                 }else{
+
+                    $("#exampleModal #close").click()
+                    
                     $(`#${idbtnClick}`).html(svgBtnError);
                     $(`#${idbtnClick}`).addClass(`animate__animated animate__flash`);
 

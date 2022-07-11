@@ -78,6 +78,13 @@
             <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
           </div>
         </div>
+        <div id="logsLabel" class="container mb-2">
+          Logs: 
+          <div id="logs" style="border: 1px solid rgb(226, 226, 226)">
+            &nbsp;
+          </div>
+        </div>
+
         <div class="row">
           <div class="col">
             <label for="firstName" class="form-label">Solicitações:</label>

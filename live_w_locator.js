@@ -332,7 +332,7 @@ async function openCamera(par) {
                 }else{
 
                     $("#exampleModal #close").click()
-                    
+
                     $(`#${idbtnClick}`).html(svgBtnError);
                     $(`#${idbtnClick}`).addClass(`animate__animated animate__flash`);
 
@@ -341,7 +341,7 @@ async function openCamera(par) {
                         $(`#${idbtnClick}`).removeClass(`animate__animated animate__flash`);
                     }, 2000)
 
-                    Quagga.stop();   
+                    //Quagga.stop();   
                     return; 
 
                 

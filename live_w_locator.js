@@ -326,7 +326,7 @@ async function openCamera(par) {
                     $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
                     $(`#${idbtnClick}`).html(svgBtnSuccess);
 
-                    Quagga.stop();   
+                    //Quagga.stop();   
                     return; 
 
                 }else{

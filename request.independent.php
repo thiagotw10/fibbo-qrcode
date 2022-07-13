@@ -94,7 +94,7 @@
             </div>
             <div class="col-3">
 
-              <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control"
+              <button href="#" style="border:1px solid black;" onclick="openCamera('request')" class="btn form-control"
                 id="btnBarCode1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
 
@@ -120,7 +120,7 @@
               <input type="text" class="form-control" id="inputUserCode" placeholder="" required>
             </div>
             <div class="col-3">
-              <button href="#" style="border:1px solid black;" onclick="openCameraForUserCode(this)" class="btn form-control"
+              <button href="#" style="border:1px solid black;" onclick="openCamera('user_code')" class="btn form-control"
                 id="btnBarCodeForUserCode" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
 

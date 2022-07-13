@@ -290,6 +290,7 @@ async function openCamera(par) {
     Quagga.start();
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
+        let sector = $('#sectors').val()
 
         if (App.lastResult !== code) {
             App.lastResult = code;
@@ -298,7 +299,8 @@ async function openCamera(par) {
                 "url": "src/rules/validate.request.rule.php",
                 "method": "POST",
                 "data": { 
-                request: code
+                    request: code,
+                    sector
                 }
             };
 

@@ -64,11 +64,8 @@
         <div class="row mb-3">
           <div class="col">
             <label for="firstName" class="form-label">Setor:</label>
-            <select name="sectorId" class="form-control" id="sectorId">
+            <select name="sectors" class="form-control" id="sectors">
               <option value="0"></option>
-              <option value="1">Setor 1</option>
-              <option value="2">Setor 2</option>
-              <option value="3">Setor 3</option>
             </select>
           </div>
         </div>
@@ -78,7 +75,7 @@
             <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
           </div>
         </div>
-        <div id="logsLabel" class="container mb-2">
+        <div id="logsLabel" class="container mb-2" hidden>
           cont: <input type="number" value="1" id="cont" ><br/>
           Logs: 
           <div id="logs" style="border: 1px solid rgb(226, 226, 226)">
@@ -99,8 +96,9 @@
             </div>
             <div class="col-3">
 
-              <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control"
-                id="btnBarCode1" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+              <button href="#" style="border:1px solid black;" onclick="openCameraTest(this)" class="btn form-control"
+                id="btnBarCode1" > 
+                <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
              
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                   <path
@@ -225,9 +223,7 @@
     integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <script src="src/controllers/validate.request.controller.js" type="text/javascript"></script> -->
-  <script src="live_w_locator.js" type="text/javascript"></script>
-
-
+  <script src="index.js" type="text/javascript"></script>
   <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

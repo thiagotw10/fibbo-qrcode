@@ -296,7 +296,7 @@ async function openCamera(par) {
             $("#exampleModal #close").click()
             return;
 
-        }else if ('request'){
+        }else if (par == 'request'){
             let sector = $('#sectors').val()
 
             if (App.lastResult !== code) {

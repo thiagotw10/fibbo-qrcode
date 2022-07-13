@@ -455,3 +455,17 @@ function getSectors(){
 
     
 }
+
+function openCameraForUserCode(){
+
+    Quagga.start();
+    Quagga.onDetected(function(result) {
+        let code = result.codeResult.code;
+        if (App.lastResult !== code) {
+            App.lastResult = code;
+            $('#inputUserCode').val(code);
+            return;
+        }
+    })
+    
+}

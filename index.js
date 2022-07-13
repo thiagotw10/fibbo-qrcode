@@ -467,6 +467,7 @@ function openCameraForUserCode(){
             App.lastResult = code;
             $('#inputUserCode').val(code);
             $("#exampleModal #close").click()
+            Quagga.stop();
             return;
         }
     })

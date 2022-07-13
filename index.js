@@ -295,80 +295,81 @@ async function openCamera(par) {
             $('#inputUserCode').val(code);
             $("#exampleModal #close").click()
             return;
-        }
+            
+        }else{
+            let sector = $('#sectors').val()
 
-
-        let sector = $('#sectors').val()
-
-        if (App.lastResult !== code) {
-            App.lastResult = code;
-
-            const settings = {
-                "url": "src/rules/validate.request.rule.php",
-                "method": "POST",
-                "data": { 
-                    request: code,
-                    sector
-                }
-            };
-
-            $.ajax(settings).done(function (response) {
-
-                if (response == 1){
-
-
-                    $("#exampleModal #close").click()
-
-                    document.querySelector(`#request${cont}`).value = code   
-
-                    cont = cont + 1
-                    let newRequest = `
-                    <div class="row mt-2">
-                    <div class="col-9">
-                        <input type="text" disabled class="form-control"  id="request${cont}"/>
-                    </div>
-                    <div class="col-3">
-                        <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control" id="btnBarCode${cont}" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>
-                        </button>
-                    </div>
-                    </div>
-                    `;
-
+            if (App.lastResult !== code) {
+                App.lastResult = code;
+    
+                const settings = {
+                    "url": "src/rules/validate.request.rule.php",
+                    "method": "POST",
+                    "data": { 
+                        request: code,
+                        sector
+                    }
+                };
+    
+                $.ajax(settings).done(function (response) {
+    
+                    if (response == 1){
+    
+    
+                        $("#exampleModal #close").click()
+    
+                        document.querySelector(`#request${cont}`).value = code   
+    
+                        cont = cont + 1
+                        let newRequest = `
+                        <div class="row mt-2">
+                        <div class="col-9">
+                            <input type="text" disabled class="form-control"  id="request${cont}"/>
+                        </div>
+                        <div class="col-3">
+                            <button href="#" style="border:1px solid black;" onclick="openCamera(this)" class="btn form-control" id="btnBarCode${cont}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z"/></svg>
+                            </button>
+                        </div>
+                        </div>
+                        `;
+    
+                        
+                        $(`#requests`).append(newRequest);
+                        $(`#btnBarCode${cont-1}`).attr('disabled', 'disabled');
+                        $(`#btnBarCode${cont}`).addClass(`animate__animated animate__fadeIn`);
+                        $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
+                        $(`#btnBarCode${cont-1}`).html(svgBtnSuccess);
+    
+                        //Quagga.stop();  
+                        $('#cont').val(cont); 
+                        return; 
+    
+                    }else{
+    
+                        $("#exampleModal #close").click()
+    
+                        $(`#btnBarCode${cont}`).html(svgBtnError);
+                        $(`#btnBarCode${cont}`).addClass(`animate__animated animate__flash`);
+    
+                        setTimeout(function(){
+                            $(`#btnBarCode${cont}`).html(svgBarCode);
+                            $(`#btnBarCode${cont}`).removeClass(`animate__animated animate__flash`);
+                        }, 2000)
+    
+                        //Quagga.stop();   
+                        return; 
+    
                     
-                    $(`#requests`).append(newRequest);
-                    $(`#btnBarCode${cont-1}`).attr('disabled', 'disabled');
-                    $(`#btnBarCode${cont}`).addClass(`animate__animated animate__fadeIn`);
-                    $(`#request${cont}`).addClass(`animate__animated animate__fadeIn`);
-                    $(`#btnBarCode${cont-1}`).html(svgBtnSuccess);
-
-                    //Quagga.stop();  
-                    $('#cont').val(cont); 
-                    return; 
-
-                }else{
-
-                    $("#exampleModal #close").click()
-
-                    $(`#btnBarCode${cont}`).html(svgBtnError);
-                    $(`#btnBarCode${cont}`).addClass(`animate__animated animate__flash`);
-
-                    setTimeout(function(){
-                        $(`#btnBarCode${cont}`).html(svgBarCode);
-                        $(`#btnBarCode${cont}`).removeClass(`animate__animated animate__flash`);
-                    }, 2000)
-
-                    //Quagga.stop();   
-                    return; 
-
-                
-                }
-
-            }).catch(() => {
-                return false;
-            });
-
+                    }
+    
+                }).catch(() => {
+                    return false;
+                });
+    
+            }
         }
+
 
     })
     

@@ -466,6 +466,7 @@ function openCameraForUserCode(){
         if (App.lastResult !== code) {
             App.lastResult = code;
             $('#inputUserCode').val(code);
+            $("#exampleModal #close").click()
             return;
         }
     })

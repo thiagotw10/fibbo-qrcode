@@ -297,9 +297,8 @@ async function openCamera(par) {
     Quagga.start();
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-       
+        Quagga.offDetected(); 
         openLoading()
-
         // if (op == 'user_code'){
         //     $('#inputUserCode').val(code);
         //     $("#exampleModal #close").click()
@@ -354,7 +353,7 @@ async function openCamera(par) {
     
                         //Quagga.stop();  
                         $('#cont').val(cont); 
-                        
+
                         $("#exampleModal #close").click()
                         closeLoading()
                         return; 

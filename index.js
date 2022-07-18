@@ -297,8 +297,7 @@ async function openCamera(par) {
     Quagga.start();
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
-        Quagga.offDetected(); 
-        openLoading()
+       
         // if (op == 'user_code'){
         //     $('#inputUserCode').val(code);
         //     $("#exampleModal #close").click()
@@ -311,7 +310,10 @@ async function openCamera(par) {
 
             if (App.lastResult !== code) {
                 App.lastResult = code;
-    
+
+                Quagga.offDetected(); 
+                openLoading()
+                
                 const settings = {
                     "url": "src/rules/validate.request.server.rule.php",
                     "method": "POST",

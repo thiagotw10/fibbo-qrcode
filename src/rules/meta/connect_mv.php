@@ -24,7 +24,7 @@ echo "Erro na conexão com o Oracle.";
 */
 
 $curl= curl_init();
-   curl_setopt( $curl, CURLOPT_URL, 'http://52.22.17.129/moinhos_api/meta/connect_mv.php' );
+   curl_setopt( $curl, CURLOPT_URL, 'http://52.22.17.129/moinhos_farm/meta/connect_mv.php' );
    curl_setopt( $curl, CURLOPT_HEADER, false ); // para não retornar os Headers
    curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true ); // para retornar na variável
    $resultado = curl_exec( $curl );

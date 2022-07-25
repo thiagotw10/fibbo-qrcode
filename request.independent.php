@@ -24,7 +24,7 @@
 </head>
 
 <body>
-
+  <input type="text" id='user' hidden value="<?php echo $_GET['user']; ?>">
   <header style="position: fixed; width: 100%; z-index: 999;">
     <div class="navbar shadow-sm" style="background-color:#12A7BB;">
       <div class="container d-flex align-items-center">
@@ -58,7 +58,7 @@
     <section class="text-center container" style="padding-top: 5rem!important;">
 
     </section>
-
+    
     <section class="py-2 container">
 
       <div class="row py-lg-5">
@@ -94,23 +94,23 @@
             </div>
             <div class="col-3">
 
-              <button href="#" style="border:1px solid black;" onclick="openCamera('request')" class="btn form-control"
+              <!-- <button href="#" style="border:1px solid black;" onclick="openCamera('request')" class="btn form-control"
                 id="btnBarCode1" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                   <path
                     d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z" />
                 </svg>
-              </button>
+              </button> -->
 
-              <!-- <button href="#" style="border:1px solid black;" onclick="openCameraTest('request')" class="btn form-control"
+              <button href="#" style="border:1px solid black;" onclick="openCameraTest('request')" class="btn form-control"
                 id="btnBarCode1">
 
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                   <path
                     d="M22 22h-20c-1.104 0-2-.896-2-2v-16c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2v16c0 1.104-.896 2-2 2zm0-18h-20v16h20v-16zm-2 14h-1v-12h1v12zm-5 0h-1v-12h1v12zm-2 0h-1v-12h1v12zm-2 0h-2v-12h2v12zm-3 0h-1v-12h1v12zm10 0h-2v-12h2v12zm-12 0h-2v-12h2v12z" />
                 </svg>
-              </button> -->
+              </button>
 
             </div>
           </div>
@@ -144,8 +144,17 @@
 
 
       <div class="row">
-        <div class="col text-end">
-          <button class="btn form-control" style="background-color:#12A7BB; color: #fff" onclick="confirmRequests()">Confirmar</button>
+        <div class="col text-center">
+          <button class="btn form-control" style="background-color:#12A7BB; color: #fff" id='btn_confirm' onclick="confirmRequests()">Confirmar</button>
+    
+          <div class="alert alert-danger" id='labelReturnConfirmDanger' hidden role="alert">
+            Erro no registrar, recarregando ...
+          </div>
+
+          <div class="alert alert-success" id='labelReturnConfirmSuccess' hidden role="alert">
+            Registrado com sucesso, recarregando ...
+          </div>
+
         </div>
       </div>
     </section>
@@ -224,6 +233,27 @@
                 </div>
 
               </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal for Central de mensagens -->
+    <div class="modal fade" id="modalReturnOnConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Central de mensagens</h5>
+          <button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+             123
             </div>
           </div>
 

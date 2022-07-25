@@ -26,7 +26,7 @@
 <body>
   <input type="text" id='user' hidden value="<?php echo $_GET['user']; ?>">
   <header style="position: fixed; width: 100%; z-index: 999;">
-    <div class="navbar shadow-sm" style="background-color:#12A7BB;">
+    <div class="navbar shadow-sm" style="background-color:#2d82a6;">
       <div class="container d-flex align-items-center">
         <a href="#" class="navbar-brand ">
           <img style="width:5em;"

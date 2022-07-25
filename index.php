@@ -19,11 +19,11 @@
 
 <body>
   <header>
-    <div class="navbar shadow-sm" style="background-color:#12A7BB;">
+    <div class="navbar shadow-sm" style="background-color:#2d82a6;">
       <div class="container d-flex align-items-center">
         <a href="#" class="navbar-brand ">
           <img style="width:5em;"
-            src="https://static.wixstatic.com/media/7bead1_f2549890dd6e4547bafe0834e12fd586~mv2.png/v1/fill/w_350,h_110,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7bead1_f2549890dd6e4547bafe0834e12fd586~mv2.png"
+            src="assets/logo_branca.png"
             alt="">
         </a>
       </div>

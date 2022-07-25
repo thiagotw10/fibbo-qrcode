@@ -53,7 +53,7 @@
         <div class="row mb-3">
           <div class="col">
             <label for="firstName" class="form-label">Senha:</label>
-            <input type="text" class="form-control" id="password" required>
+            <input type="password" class="form-control" id="password" required>
           </div>
         </div>
         <div class="row p-3">

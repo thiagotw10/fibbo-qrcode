@@ -183,7 +183,6 @@
           <div id="interactive" class="viewport"></div>
           <!-- fim result da camera -->
 
-
         </div>
 
       </div>
@@ -247,7 +246,7 @@
   </div>
 
     <!-- Modal for Central de mensagens -->
-    <div class="modal fade" id="modalReturnOnConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalReturnOnConfirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -265,7 +264,7 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- <script src="vendor/jquery-1.9.0.min.js" type="text/javascript"></script> -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>

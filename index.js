@@ -334,8 +334,8 @@ $(document).ready(function(){
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width : 640,
-                    height: 320,
+                    width : {min: 640},
+                    height: {min: 320},
                     facingMode: "environment",
                     aspectRatio: {min: 1, max: 2}
                 }

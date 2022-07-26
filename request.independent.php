@@ -206,7 +206,7 @@
                 <div class="row mb-2">
                   <div class="col">
                     <span>Tipo</span>
-                    <select name="decoder_readers" class="form-control">
+                    <select name="decoder_readers" class="form-control .reader-config-group">
                       <option value="code_128" selected="selected">Code 128</option>
                       <option value="code_39">Code 39</option>
                       <option value="code_39_vin">Code 39 VIN</option>

@@ -155,6 +155,10 @@
             Registrado com sucesso, recarregando ...
           </div>
 
+          <div class="alert alert-info" id='labelReturnConfirmInfo' hidden role="alert">
+            Verifique se todos os campos foram preenchidos.
+          </div>
+
         </div>
       </div>
     </section>
@@ -224,13 +228,13 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col">
                     <fieldset class="input-group">
                       <button class="stop btn btn-danger form-control">Parar camera</button>
                     </fieldset>
                   </div>
-                </div>
+                </div> -->
 
               </div>
             </div>

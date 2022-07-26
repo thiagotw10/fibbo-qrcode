@@ -23,6 +23,22 @@ function confirmRequests(){
         $('#request19').val() ? $('#request19').val() : 0,
         $('#request20').val() ? $('#request20').val() : 0,
     ];
+
+    let sector = $('#sectors').val()
+    let user = $('#user').val()
+    let userCode = $('#inputUserCode').val()
+
+    if (reqs[0] == 0 || !sector || !userCode){
+        closeLoading()
+        $("#btn_confirm").hide()
+        $("#labelReturnConfirmInfo").attr('hidden', false)
+        setTimeout(function(){
+            $("#labelReturnConfirmInfo").attr('hidden', true)
+            $("#btn_confirm").show()
+        }, 2000)
+        return;
+    }
+
     let concatReq = 0;
 
     for (let i = 0; i < reqs.length; i++) {
@@ -34,9 +50,6 @@ function confirmRequests(){
             }
         }
     }
-    let sector = $('#sectors').val()
-    let user = $('#user').val()
-    let userCode = $('#inputUserCode').val()
 
     const settings = {
         "url": "src/controllers/process.request.server.php",

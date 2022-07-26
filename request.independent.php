@@ -205,25 +205,29 @@
                 <div class="row mb-2">
                   <div class="col">
                     <span>Tipo</span>
-                    <select name="decoder_readers" class="form-control .reader-config-group">
-                      <option value="code_128" selected="selected">Code 128</option>
-                      <option value="code_39">Code 39</option>
-                      <option value="code_39_vin">Code 39 VIN</option>
-                      <option value="ean">EAN</option>
-                      <option value="ean_extended">EAN-extended</option>
-                      <option value="ean_8">EAN-8</option>
-                      <option value="upc">UPC</option>
-                      <option value="upc_e">UPC-E</option>
-                      <option value="codabar">Codabar</option>
-                      <option value="i2of5">Interleaved 2 of 5</option>
-                      <option value="2of5">Standard 2 of 5</option>
-                      <option value="code_93">Code 93</option>
-                    </select>
+                    <fieldset class="reader-config-group">
+                      <select name="decoder_readers" class="form-control">
+                        <option value="code_128" selected="selected">Code 128</option>
+                        <option value="code_39">Code 39</option>
+                        <option value="code_39_vin">Code 39 VIN</option>
+                        <option value="ean">EAN</option>
+                        <option value="ean_extended">EAN-extended</option>
+                        <option value="ean_8">EAN-8</option>
+                        <option value="upc">UPC</option>
+                        <option value="upc_e">UPC-E</option>
+                        <option value="codabar">Codabar</option>
+                        <option value="i2of5">Interleaved 2 of 5</option>
+                        <option value="2of5">Standard 2 of 5</option>
+                        <option value="code_93">Code 93</option>
+                      </select>
+                    </fieldset>  
                   </div>
                   <div class="col">
+                  <fieldset class="reader-config-group">
                     <span>Camera</span>
                     <select name="input-stream_constraints" id="deviceSelection" class="form-control">
                     </select>
+                  </fieldset>  
                   </div>
                 </div>
 

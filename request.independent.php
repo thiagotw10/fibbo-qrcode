@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'Anek Latin', sans-serif;
@@ -60,17 +61,16 @@
     </section>
     
     <section class="py-2 container">
+      
 
-      <div class="row py-lg-5">
         <div class="row mb-3">
-          <div class="col">
+          <div class="col-md-12">
             <label for="firstName" class="form-label">Setor:</label>
-            <select name="sectors" class="form-control" id="sectors">
+            <select name="sectors" class="form-control js-example-basic-single" id="sectors">
               <option value="0"></option>
             </select>
           </div>
-        </div>
-
+          </div>
         <div id="logsLabel" class="container mb-2" hidden>
           cont: <input type="number" value="1" id="cont"><br />
           Logs:
@@ -78,7 +78,6 @@
             &nbsp;
           </div>
         </div>
-
 
         <div class="row">
           <div class="col">
@@ -287,6 +286,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
     integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <!-- <script src="frameworkLerQrCode.min.js"></script> -->
 
 </body>

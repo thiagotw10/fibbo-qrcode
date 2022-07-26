@@ -360,6 +360,7 @@ $(document).ready(function(){
 
     App.init();
     getSectors();
+    $('.js-example-basic-single').select2();
 
 })
 

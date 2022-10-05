@@ -13,6 +13,10 @@ body {
   font-family: 'Anek Latin', sans-serif;
 }
 
+video{
+  width: 29em !important;
+}
+
 .btn-login{
   background-color:#2d82a6;
   color: #fff;

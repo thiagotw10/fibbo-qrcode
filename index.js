@@ -299,7 +299,7 @@ $(document).ready(function(){
                     if (/^(\d+)x(\d+)$/.test(value)) {
                         //var values = value.split('x');
                         return {
-                            width: {min: 320}, // 640
+                            width: {min: 640}, 
                             height: {min: 320}
                         };
                     }

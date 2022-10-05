@@ -65,12 +65,35 @@
 
         <div class="row mb-3">
           <div class="col-md-12">
+            <label for="firstName" class="form-label">Tipo do leitor:</label>
+              <fieldset class="reader-config-group">
+                <select name="decoder_readers" class="form-control">
+                  <option value="code_128" selected="selected">Etiqueta</option>
+                  <option value="code_39">Boleta</option>
+                  <!-- <option value="code_39_vin">Code 39 VIN</option>
+                  <option value="ean">EAN</option>
+                  <option value="ean_extended">EAN-extended</option>
+                  <option value="ean_8">EAN-8</option>
+                  <option value="upc">UPC</option>
+                  <option value="upc_e">UPC-E</option>
+                  <option value="codabar">Codabar</option>
+                  <option value="i2of5">Interleaved 2 of 5</option>
+                  <option value="2of5">Standard 2 of 5</option>
+                  <option value="code_93">Code 93</option> -->
+                </select>
+              </fieldset>  
+          </div>
+          </div>
+
+          <div class="row mb-3">
+          <div class="col-md-12">
             <label for="firstName" class="form-label">Setor:</label>
             <select name="sectors" class="form-control js-example-basic-single" id="sectors">
               <option value="0"></option>
             </select>
           </div>
           </div>
+
         <div id="logsLabel" class="container mb-2" hidden>
           cont: <input type="number" value="1" id="cont"><br />
           Logs:
@@ -147,7 +170,7 @@
           <button class="btn form-control" style="background-color:#12A7BB; color: #fff" id='btn_confirm' onclick="confirmRequests()">Confirmar</button>
     
           <div class="alert alert-danger" id='labelReturnConfirmDanger' hidden role="alert">
-            Erro no registrar, recarregando ...
+            Erro no registro, recarregando ...
           </div>
 
           <div class="alert alert-success" id='labelReturnConfirmSuccess' hidden role="alert">
@@ -201,7 +224,7 @@
             <div class="col">
               <div class="controls">
 
-                <div class="row mb-2">
+                <!-- <div class="row mb-2">
                   <div class="col">
                     <span>Tipo</span>
                     <fieldset class="reader-config-group">
@@ -228,7 +251,7 @@
                     </select>
                   </fieldset>  
                   </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="row">
                   <div class="col">

@@ -66,6 +66,7 @@
         <div class="row mb-3">
           <div class="col-md-12">
             <label for="firstName" class="form-label">Tipo do leitor:</label>
+            <div class="controls">
               <fieldset class="reader-config-group">
                 <select name="decoder_readers" class="form-control">
                   <option value="code_128" selected="selected">Etiqueta</option>
@@ -82,6 +83,7 @@
                   <option value="code_93">Code 93</option> -->
                 </select>
               </fieldset>  
+            </div>
           </div>
           </div>
 
@@ -224,8 +226,8 @@
             <div class="col">
               <div class="controls">
 
-                <!-- <div class="row mb-2">
-                  <div class="col">
+                <div class="row mb-2">
+                  <!-- <div class="col">
                     <span>Tipo</span>
                     <fieldset class="reader-config-group">
                       <select name="decoder_readers" class="form-control">
@@ -243,7 +245,7 @@
                         <option value="code_93">Code 93</option>
                       </select>
                     </fieldset>  
-                  </div>
+                  </div> -->
                   <div class="col">
                   <fieldset class="reader-config-group">
                     <span>Camera</span>
@@ -251,7 +253,7 @@
                     </select>
                   </fieldset>  
                   </div>
-                </div> -->
+                </div>
 
                 <!-- <div class="row">
                   <div class="col">

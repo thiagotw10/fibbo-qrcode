@@ -256,7 +256,9 @@
                   
                 </div>
                 <div class="row">
-                  <div class="col">Sair</div>
+                  <div class="col"><br/>
+                    <a href="./index.php" class="btn btn-danger btn-sm form-control">Sair</a>
+                  </div>
                 </div>
 
                 <!-- <div class="row">

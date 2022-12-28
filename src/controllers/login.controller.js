@@ -23,7 +23,7 @@ function login(){
 
   $.ajax(settings).done(function (response) {
     console.log(response);
-    if (response == true){
+    if (response == false){
       ret = `
         <div class="alert alert-success" role="alert">
           Ok, redirecionando...
